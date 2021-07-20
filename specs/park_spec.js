@@ -69,6 +69,11 @@ describe('Park', function() {
         assert.deepStrictEqual(allSpecies.length, 2);
       });
 
+      it('should be able remove all dinosaurs of a particular species', function(){
+        dinoCollection = park.removeSpecies('Velociraptor');
+        assert.deepStrictEqual(dinoCollection.length, 3);
+      });
+
       it('should be able to calculate the total number of visitors per day', function(){
         let total = park.visitorsDay();
         const actual = dinosaur.guestsAttractedPerDay + dinosaur2.guestsAttractedPerDay + dinosaur3.guestsAttractedPerDay + dinosaur4.guestsAttractedPerDay + dinosaur5.guestsAttractedPerDay;
@@ -81,7 +86,6 @@ describe('Park', function() {
         const actual = actualday * 365;
         assert.strictEqual(total, actual);
       });
-
 
       it('should be able to calculate total revenue for one year', function(){
         let total = park.revenueYear();

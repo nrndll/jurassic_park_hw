@@ -33,6 +33,15 @@ Park.prototype.allOfSpecies = function(species){
     return allSpecies;
 }
 
+Park.prototype.removeSpecies = function(species){
+    for (i = this.collectionOfDinosaurs.length-1; i >= 0; i--) {
+        if (this.collectionOfDinosaurs[i].species === species) {
+            this.collectionOfDinosaurs.splice(i, 1);
+        }
+    }
+    return this.collectionOfDinosaurs;
+}
+
 Park.prototype.visitorsDay = function(){
     let total = 0;
     for (i = 0; i < this.collectionOfDinosaurs.length; i++){
