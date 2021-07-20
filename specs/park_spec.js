@@ -70,13 +70,17 @@ describe('Park', function() {
       });
 
       it('should be able to calculate the total number of visitors per day', function(){
-        let total = park.noVisitorsDay();
-        actual = dinosaur.guestsAttractedPerDay + dinosaur2.guestsAttractedPerDay + dinosaur3.guestsAttractedPerDay + dinosaur4.guestsAttractedPerDay + dinosaur5.guestsAttractedPerDay;
+        let total = park.visitorsDay();
+        const actual = dinosaur.guestsAttractedPerDay + dinosaur2.guestsAttractedPerDay + dinosaur3.guestsAttractedPerDay + dinosaur4.guestsAttractedPerDay + dinosaur5.guestsAttractedPerDay;
         assert.strictEqual(total, actual);
       });
 
-
-      it('should be able to calculate the total number of visitors per year');
+      it('should be able to calculate the total number of visitors per year', function(){
+        let total = park.visitorsYear();
+        const actualday = dinosaur.guestsAttractedPerDay + dinosaur2.guestsAttractedPerDay + dinosaur3.guestsAttractedPerDay + dinosaur4.guestsAttractedPerDay + dinosaur5.guestsAttractedPerDay;
+        const actual = actualday * 365;
+        assert.strictEqual(total, actual);
+      });
 
 
       it('should be able to calculate total revenue for one year');

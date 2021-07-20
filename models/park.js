@@ -33,12 +33,26 @@ Park.prototype.allOfSpecies = function(species){
     return allSpecies;
 }
 
-Park.prototype.noVisitorsDay = function(){
+Park.prototype.visitorsDay = function(){
     let total = 0;
     for (i = 0; i < this.collectionOfDinosaurs.length; i++){
         total += this.collectionOfDinosaurs[i].guestsAttractedPerDay;
     }
     return total;
 }
+
+Park.prototype.visitorsYear = function(){
+    let totalDay = this.visitorsDay();
+    return (totalDay*365);
+}
+
+// Park.prototype.visitorsYear = function () {
+//     let total = 0;
+//     for (i = 0; i < this.collectionOfDinosaurs.length; i++) {
+//         total += this.collectionOfDinosaurs[i].guestsAttractedPerDay;
+//     }
+//     return (total*365);
+// }
+
 
 module.exports = Park;
