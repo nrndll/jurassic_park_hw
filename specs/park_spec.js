@@ -83,7 +83,13 @@ describe('Park', function() {
       });
 
 
-      it('should be able to calculate total revenue for one year');
+      it('should be able to calculate total revenue for one year', function(){
+        let total = park.revenueYear();
+        const visitorsDay = dinosaur.guestsAttractedPerDay + dinosaur2.guestsAttractedPerDay + dinosaur3.guestsAttractedPerDay + dinosaur4.guestsAttractedPerDay + dinosaur5.guestsAttractedPerDay;
+        const totalVisitors = visitorsDay * 365;
+        const actual = totalVisitors * park.ticketPrice;
+        assert.strictEqual(total, actual);
+      });
 
     })
 

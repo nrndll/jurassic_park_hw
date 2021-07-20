@@ -46,13 +46,10 @@ Park.prototype.visitorsYear = function(){
     return (totalDay*365);
 }
 
-// Park.prototype.visitorsYear = function () {
-//     let total = 0;
-//     for (i = 0; i < this.collectionOfDinosaurs.length; i++) {
-//         total += this.collectionOfDinosaurs[i].guestsAttractedPerDay;
-//     }
-//     return (total*365);
-// }
+Park.prototype.revenueYear = function(){
+    let totalDays = this.visitorsYear();
+    return (totalDays*this.ticketPrice);
+}
 
 
 module.exports = Park;
