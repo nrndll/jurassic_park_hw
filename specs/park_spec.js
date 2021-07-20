@@ -59,7 +59,15 @@ describe('Park', function() {
       assert.deepStrictEqual(dinoMostGuests, dinosaur5);
     });
 
-    it('should be able to find all dinosaurs of a particular species');
+    it('should be able to find all dinosaurs of a particular species', function(){
+      park.addDinosaur(dinosaur);
+      park.addDinosaur(dinosaur2);
+      park.addDinosaur(dinosaur3);
+      park.addDinosaur(dinosaur4);
+      park.addDinosaur(dinosaur5);
+      allSpecies = park.allOfSpecies('Velociraptor');
+      assert.deepStrictEqual(allSpecies.length, 2);
+    });
 
     it('should be able to calculate the total number of visitors per day');
 
