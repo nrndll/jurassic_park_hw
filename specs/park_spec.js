@@ -22,20 +22,11 @@ describe('Park', function() {
   });
 
 
-  describe('with dinosaurs', function(){
-
+  describe('with dinosaur', function(){
     let dinosaur;
-    let dinosaur2;
-    let dinosaur3;
-    let dinosaur4;
-    let dinosaur5;
 
     beforeEach(function(){
       dinosaur = new Dinosaur('Dino', 'herbivore', 5);
-      dinosaur2 = new Dinosaur('Stegosaurus', 'herbivore', 10);
-      dinosaur3 = new Dinosaur('Velociraptor', 'carnivore', 50);
-      dinosaur4 = new Dinosaur('Triceratops', 'herbivore', 15);
-      dinosaur5 = new Dinosaur('Velociraptor', 'carnivore', 60);
     })
 
     it('should be able to add a dinosaur to its collection', function () {
@@ -49,32 +40,48 @@ describe('Park', function() {
       assert.deepStrictEqual(park.collectionOfDinosaurs.length, 0);
     });
 
-    it('should be able to find the dinosaur that attracts the most visitors', function(){
-      park.addDinosaur(dinosaur);
-      park.addDinosaur(dinosaur2);
-      park.addDinosaur(dinosaur3);
-      park.addDinosaur(dinosaur4);
-      park.addDinosaur(dinosaur5);
-      dinoMostGuests = park.attractsMostGuests();
-      assert.deepStrictEqual(dinoMostGuests, dinosaur5);
-    });
+    describe('with multiple dinosaurs', function(){
+      let dinosaur2;
+      let dinosaur3;
+      let dinosaur4;
+      let dinosaur5;
 
-    it('should be able to find all dinosaurs of a particular species', function(){
-      park.addDinosaur(dinosaur);
-      park.addDinosaur(dinosaur2);
-      park.addDinosaur(dinosaur3);
-      park.addDinosaur(dinosaur4);
-      park.addDinosaur(dinosaur5);
-      allSpecies = park.allOfSpecies('Velociraptor');
-      assert.deepStrictEqual(allSpecies.length, 2);
-    });
+      beforeEach(function(){
+        dinosaur2 = new Dinosaur('Stegosaurus', 'herbivore', 10);
+        dinosaur3 = new Dinosaur('Velociraptor', 'carnivore', 50);
+        dinosaur4 = new Dinosaur('Triceratops', 'herbivore', 15);
+        dinosaur5 = new Dinosaur('Velociraptor', 'carnivore', 60);
 
-    it('should be able to calculate the total number of visitors per day');
+        park.addDinosaur(dinosaur);
+        park.addDinosaur(dinosaur2);
+        park.addDinosaur(dinosaur3);
+        park.addDinosaur(dinosaur4);
+        park.addDinosaur(dinosaur5);
+      })
 
-    it('should be able to calculate the total number of visitors per year');
+      it('should be able to find the dinosaur that attracts the most visitors', function () {
+        dinoMostGuests = park.attractsMostGuests();
+        assert.deepStrictEqual(dinoMostGuests, dinosaur5);
+      });
 
-    it('should be able to calculate total revenue for one year');
+      it('should be able to find all dinosaurs of a particular species', function () {
+        allSpecies = park.allOfSpecies('Velociraptor');
+        assert.deepStrictEqual(allSpecies.length, 2);
+      });
 
+      it('should be able to calculate the total number of visitors per day', function(){
+        let total = park.noVisitorsDay();
+        actual = dinosaur.guestsAttractedPerDay + dinosaur2.guestsAttractedPerDay + dinosaur3.guestsAttractedPerDay + dinosaur4.guestsAttractedPerDay + dinosaur5.guestsAttractedPerDay;
+        assert.strictEqual(total, actual);
+      });
+
+
+      it('should be able to calculate the total number of visitors per year');
+
+
+      it('should be able to calculate total revenue for one year');
+
+    })
 
   })
 
