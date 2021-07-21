@@ -31,13 +31,16 @@ describe('Park', function() {
 
     it('should be able to add a dinosaur to its collection', function () {
       park.addDinosaur(dinosaur)
-      assert.deepStrictEqual(park.collectionOfDinosaurs.length, 1)
+      // assert.strictEqual(park.collectionOfDinosaurs.length, 1)
+      assert.deepStrictEqual(park.collectionOfDinosaurs[0], dinosaur)
     });
 
     it('should be able to remove a dinosaur from its collection', function () {
       park.addDinosaur(dinosaur);
+      let dinosaur_extra = new Dinosaur('T-Rex', 'carnivore', 1000);
+      park.addDinosaur(dinosaur_extra);
       park.removeDinosaur(dinosaur);
-      assert.deepStrictEqual(park.collectionOfDinosaurs.length, 0);
+      assert.deepStrictEqual(park.collectionOfDinosaurs[0], dinosaur_extra);
     });
 
     describe('with multiple dinosaurs', function(){
@@ -61,17 +64,17 @@ describe('Park', function() {
 
       it('should be able to find the dinosaur that attracts the most visitors', function () {
         dinoMostGuests = park.attractsMostGuests();
-        assert.deepStrictEqual(dinoMostGuests, dinosaur5);
+        assert.strictEqual(dinoMostGuests, dinosaur5);
       });
 
       it('should be able to find all dinosaurs of a particular species', function () {
         allSpecies = park.allOfSpecies('Velociraptor');
-        assert.deepStrictEqual(allSpecies.length, 2);
+        assert.strictEqual(allSpecies.length, 2);
       });
 
       it('should be able remove all dinosaurs of a particular species', function(){
         dinoCollection = park.removeSpecies('Velociraptor');
-        assert.deepStrictEqual(dinoCollection.length, 3);
+        assert.strictEqual(dinoCollection.length, 3);
       });
 
       it('should be able to calculate the total number of visitors per day', function(){
