@@ -15,7 +15,7 @@ Park.prototype.removeDinosaur = function(dinosaur){
 
 Park.prototype.attractsMostGuests = function(){
     let currentDino = this.collectionOfDinosaurs[0];
-    for (i=0;i<this.collectionOfDinosaurs.length;i++){
+    for (let i=0;i<this.collectionOfDinosaurs.length;i++){
         if (currentDino.guestsAttractedPerDay < this.collectionOfDinosaurs[i].guestsAttractedPerDay){
             currentDino = this.collectionOfDinosaurs[i];
         }
@@ -25,7 +25,7 @@ Park.prototype.attractsMostGuests = function(){
 
 Park.prototype.allOfSpecies = function(species){
     let allSpecies = [];
-    for (i=0;i<this.collectionOfDinosaurs.length;i++){
+    for (let i=0;i<this.collectionOfDinosaurs.length;i++){
         if (this.collectionOfDinosaurs[i].species === species){
             allSpecies.push(this.collectionOfDinosaurs[i]);
         }
@@ -34,7 +34,7 @@ Park.prototype.allOfSpecies = function(species){
 }
 
 Park.prototype.removeSpecies = function(species){
-    for (i = this.collectionOfDinosaurs.length-1; i >= 0; i--) {
+    for (let i = this.collectionOfDinosaurs.length-1; i >= 0; i--) {
         if (this.collectionOfDinosaurs[i].species === species) {
             this.collectionOfDinosaurs.splice(i, 1);
         }
@@ -44,7 +44,7 @@ Park.prototype.removeSpecies = function(species){
 
 Park.prototype.visitorsDay = function(){
     let total = 0;
-    for (i = 0; i < this.collectionOfDinosaurs.length; i++){
+    for (let i = 0; i < this.collectionOfDinosaurs.length; i++){
         total += this.collectionOfDinosaurs[i].guestsAttractedPerDay;
     }
     return total;

@@ -69,12 +69,12 @@ describe('Park', function() {
 
       it('should be able to find all dinosaurs of a particular species', function () {
         allSpecies = park.allOfSpecies('Velociraptor');
-        assert.strictEqual(allSpecies.length, 2);
+        assert.deepStrictEqual(allSpecies, [dinosaur3, dinosaur5]);
       });
 
       it('should be able remove all dinosaurs of a particular species', function(){
-        dinoCollection = park.removeSpecies('Velociraptor');
-        assert.strictEqual(dinoCollection.length, 3);
+        park.removeSpecies('Velociraptor');
+        assert.deepStrictEqual(park.collectionOfDinosaurs, [dinosaur, dinosaur2, dinosaur4]);
       });
 
       it('should be able to calculate the total number of visitors per day', function(){
